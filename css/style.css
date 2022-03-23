@@ -6,8 +6,8 @@ box-sizing: border-box;
 
 .header-container {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-around;
     align-items: center;
     width: 100%;
     height: 100px;
@@ -20,6 +20,57 @@ box-sizing: border-box;
     font-size: 2.5rem;
     font-weight: bold;
     color: rgb(131, 131, 131);
+}
+
+.label_container {
+    position : absolute;
+    display: flex;
+    top: 10rem;
+    flex-direction: row;
+}
+
+.label {
+    margin-left: 1rem;
+    display: flex;
+
+    /* Rounded border */
+    border-radius: 9999px;
+
+    /* Size */
+    height: 20px;
+    width: 40px;
+}
+
+.label.off {
+    /* OFF status */
+    background-color: rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.label.on {
+    /* ON status */
+    background-color: #357edd;
+    border: 1px solid #357edd;
+    /* Push the circle to the right */
+    justify-content: flex-end;
+}
+
+.label__input {
+    /* Hide the input */
+    display: none;
+}
+
+.label__circle {
+    /* Rounded border */
+    border-radius: 9999px;
+
+    /* Size */
+    width: 16px;
+
+    background-color: #fff;
+
+    /* OFF status */
+    border: 1px solid rgba(0, 0, 0, 0.3);
 }
 
 .container {
