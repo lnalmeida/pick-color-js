@@ -41,13 +41,13 @@ box-sizing: border-box;
     width: 40px;
 }
 
-.label.off {
+.off {
     /* OFF status */
     background-color: rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(0, 0, 0, 0.3);
 }
 
-.label.on {
+.on {
     /* ON status */
     background-color: #357edd;
     border: 1px solid #357edd;

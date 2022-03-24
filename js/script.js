@@ -3,37 +3,10 @@ window.addEventListener('DOMContentLoaded', function() {
     const colorText = document.querySelector('.color-display span');
     const switchButton = document.querySelector('.label');
     
-    let switchIsOn = false;
+    let isOn = false;
 
-    // switchButton.addEventListener('click', function() {
-    //     if (switchIsOn) {
-    //         console.log(switchIsOn);
-    //         switchIsOn = false;
-    //     } 
-    //     if(!switchIsOn) {
-    //         console.log(switchIsOn)
-    //         switchIsOn = true;
-    //     }
-    // })
-    
-    button.addEventListener('click', () => {
-        getRandomColor()
-    })
+    let playInterval;
 
-    const autoPlayOn = () => {
-            const playInterval = setInterval(() => {
-                getRandomColor();
-            }, 2000)
-            this.classList.remove('off');
-            this.classList.add('on');
-        }
-
-    const autoPlayOff = () => {
-            clearInterval(playInterval);
-            this.classList.remove('on');
-            this.classList.add('off');
-    }
-    
 
     const getRandomColor = () => {
         let str = '#';
@@ -44,4 +17,36 @@ window.addEventListener('DOMContentLoaded', function() {
         colorText.textContent = str;
         colorText.style.color = str;
     }
+
+
+    const autoPlayOn = () => {
+        playInterval = setInterval(() => {
+            getRandomColor();
+        }, 1200)
+        switchButton.classList.remove('off');
+        switchButton.classList.add('on');
+    }
+
+    const autoPlayOff = () => {
+            clearInterval(playInterval);
+            switchButton.classList.remove('on');
+            switchButton.classList.add('off');
+    }
+    
+    const playRamdomColors = () => {
+        isOn ? autoPlayOff() : autoPlayOn();
+
+    }
+    
+
+    switchButton.addEventListener('click', () => {
+        isOn = !isOn;
+        playRamdomColors();
+        console.log(isOn);
+    })
+    
+    button.addEventListener('click', () => {
+        getRandomColor()
+    })
+
 })
