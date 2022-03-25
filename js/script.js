@@ -19,29 +19,26 @@ window.addEventListener('DOMContentLoaded', function() {
     }
 
 
-    const autoPlayOn = () => {
-        playInterval = setInterval(() => {
-            getRandomColor();
-        }, 1200)
-        switchButton.classList.remove('off');
-        switchButton.classList.add('on');
-    }
-
-    const autoPlayOff = () => {
+    const autoPlay = () => {
+        if(isOn) {
             clearInterval(playInterval);
             switchButton.classList.remove('on');
             switchButton.classList.add('off');
-    }
-    
-    const playRamdomColors = () => {
-        isOn ? autoPlayOff() : autoPlayOn();
-
-    }
-    
-
-    switchButton.addEventListener('click', () => {
+        } else {
+            playInterval = setInterval(() => {
+                getRandomColor();
+            }, 1200)
+            switchButton.classList.remove('off');
+            switchButton.classList.add('on');
+        }
         isOn = !isOn;
-        playRamdomColors();
+    }
+
+    
+  
+
+    switchButton.addEventListener('change', () => {
+        autoPlay()
         console.log(isOn);
     })
     
