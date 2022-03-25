@@ -55,6 +55,18 @@ box-sizing: border-box;
     justify-content: flex-end;
 }
 
+.pointer-disabled {
+    cursor: none;
+    cursor: -moz-grab;
+    pointer-events: none;
+}
+
+.button:hover {
+    background-color: #e4e8ee;
+    opacity: 0.8;
+    transition: 0.5s;
+}
+
 .label__input {
     /* Hide the input */
     display: none;

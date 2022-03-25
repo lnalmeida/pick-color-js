@@ -22,12 +22,14 @@ window.addEventListener('DOMContentLoaded', function() {
     const autoPlay = () => {
         if(isOn) {
             clearInterval(playInterval);
+            button.classList.remove('pointer-disabled')
             switchButton.classList.remove('on');
             switchButton.classList.add('off');
         } else {
             playInterval = setInterval(() => {
                 getRandomColor();
             }, 1200)
+            button.classList.add('pointer-disabled')
             switchButton.classList.remove('off');
             switchButton.classList.add('on');
         }
